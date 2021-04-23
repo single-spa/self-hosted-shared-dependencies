@@ -58,7 +58,7 @@ Then create a shared-deps.conf.mjs file:
 /**
  * @type {import('self-hosted-shared-dependencies').BuildOpts}
  */
-export default {
+const config = {
   // Required, a list of npm package versions to include in the output directory
   packages: [
     {
@@ -123,6 +123,8 @@ export default {
   // This changes the verbosity of the stdout logging
   logLevel: "warn",
 };
+
+export default config;
 ```
 
 Now you can run `npm run build` to generate the output directory.
