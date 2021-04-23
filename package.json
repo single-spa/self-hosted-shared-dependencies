@@ -1,0 +1,50 @@
+{
+  "type": "module",
+  "name": "self-hosted-shared-dependencies",
+  "version": "1.0.0",
+  "description": "Self host npm dependencies",
+  "main": "lib/self-hosted-shared-dependencies.js",
+  "scripts": {
+    "test": "node bin/self-hosted-shared-dependencies-cli.js build test/happy-path.conf.js --clean",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
+  },
+  "bin": {
+    "shared-deps": "bin/self-hosted-shared-dependencies-cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/single-spa/self-hosted-shared-dependencies.git"
+  },
+  "keywords": [
+    "single-spa",
+    "microfrontends",
+    "shared",
+    "dependencies",
+    "systemjs"
+  ],
+  "author": "Joel Denning",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/single-spa/self-hosted-shared-dependencies/issues"
+  },
+  "homepage": "https://github.com/single-spa/self-hosted-shared-dependencies#readme",
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "mkdirp": "^1.0.4",
+    "npm-registry-fetch": "^10.1.0",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.5",
+    "tar": "^6.1.0"
+  },
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "pinst": "^2.1.6",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
+  }
+}
