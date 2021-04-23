@@ -36,6 +36,10 @@ yarn global add self-hosted-shared-dependencies
 pnpm install --global self-hosted-shared-dependencies
 ```
 
+## Requirements
+
+self-hosted-shared-dependencies requires NodeJS@>=14 (uses ES modules and nullish coalescing operator)
+
 ## Usage
 
 It's recommended to run self-hosted-shared-dependencies during the CI/CD build and deploy process of a repository called `shared-dependencies` within your organization. It will generate a static directory of frontend assets, and optionally a Dockerfile for self-hosting the frontend assets. The easiest way to accomplish this is often to add to your npm-scripts in your project's package.json:
