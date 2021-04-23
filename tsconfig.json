@@ -1,0 +1,9 @@
+{
+  "files": ["lib/self-hosted-shared-dependencies.js"],
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "types",
+    "declaration": true,
+    "emitDeclarationOnly": true
+  }
+}
