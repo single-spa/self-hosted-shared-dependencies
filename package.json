@@ -13,6 +13,11 @@
   "bin": {
     "shared-deps": "bin/self-hosted-shared-dependencies-cli.js"
   },
+  "files": [
+    "types",
+    "lib",
+    "bin"
+  ],
   "types": "types/self-hosted-shared-dependencies.d.ts",
   "repository": {
     "type": "git",
