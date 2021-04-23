@@ -132,8 +132,40 @@ Once you have the output directory, you can run `npx http-server npm` to start u
 Here's an example showing the file structure created by running `shared-deps build`
 
 ```sh
-npm/
-  react@17.0.0/umd/react.development.js
+npm
+npm/Dockerfile
+npm/react@17.0.0
+npm/react@17.0.0/LICENSE
+npm/react@17.0.0/umd
+npm/react@17.0.0/umd/react.production.min.js
+npm/react@17.0.0/umd/react.development.js
+npm/react@17.0.0/umd/react.profiling.min.js
+npm/react@17.0.0/package.json
+npm/react@17.0.1
+npm/react@17.0.1/LICENSE
+npm/react@17.0.1/umd
+npm/react@17.0.1/umd/react.production.min.js
+npm/react@17.0.1/umd/react.development.js
+npm/react@17.0.1/umd/react.profiling.min.js
+npm/react@17.0.1/package.json
+npm/react@17.0.2
+npm/react@17.0.2/LICENSE
+npm/react@17.0.2/umd
+npm/react@17.0.2/umd/react.production.min.js
+npm/react@17.0.2/umd/react.development.js
+npm/react@17.0.2/umd/react.profiling.min.js
+npm/react@17.0.2/package.json
+npm/react-dom@17.0.1
+npm/react-dom@17.0.1/LICENSE
+npm/react-dom@17.0.1/umd
+npm/react-dom@17.0.1/umd/react-dom-server.browser.development.js
+npm/react-dom@17.0.1/umd/react-dom.production.min.js
+npm/react-dom@17.0.1/umd/react-dom.profiling.min.js
+npm/react-dom@17.0.1/umd/react-dom-test-utils.production.min.js
+npm/react-dom@17.0.1/umd/react-dom.development.js
+npm/react-dom@17.0.1/umd/react-dom-server.browser.production.min.js
+npm/react-dom@17.0.1/umd/react-dom-test-utils.development.js
+npm/react-dom@17.0.1/package.json
 ```
 
 ## Docker
