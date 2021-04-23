@@ -5,7 +5,7 @@
   "description": "Self host npm dependencies",
   "main": "lib/self-hosted-shared-dependencies.js",
   "scripts": {
-    "test": "node bin/self-hosted-shared-dependencies-cli.js build test/happy-path.conf.js --clean",
+    "test": "node bin/self-hosted-shared-dependencies-cli.js build test/happy-path/conf.js --clean",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable && tsc"
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/single-spa/self-hosted-shared-dependencies#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "micromatch": "^4.0.4",
     "minimist": "^1.2.5",
     "mkdirp": "^1.0.4",

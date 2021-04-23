@@ -4,6 +4,7 @@
 export default {
   clean: true,
   // skipPackagesAtUrl: 'https://unpkg.com/',
+  generateDockerfile: true,
   logLevel: "warn",
   packages: [
     {

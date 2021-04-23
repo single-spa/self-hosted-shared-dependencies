@@ -103,6 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-static
+npm
 
 types
