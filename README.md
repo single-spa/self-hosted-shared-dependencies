@@ -43,16 +43,18 @@ It's recommended to run self-hosted-shared-dependencies during the CI/CD build a
 ```json
 {
   "scripts": {
-    "build-shared-deps": "shared-deps build shared-deps.conf.js"
+    "build-shared-deps": "shared-deps build shared-deps.conf.mjs"
   }
 }
 ```
 
-Then create a shared-deps.conf.js file:
+Then create a shared-deps.conf.mjs file:
 
 ### Config File
 
 ```js
+// shared-deps.conf.mjs
+
 /**
  * @type {import('self-hosted-shared-dependencies').BuildOpts}
  */
@@ -195,7 +197,7 @@ docker stop shared-deps
 The CLI has the following flags:
 
 ```sh
-shared-deps build --clean --outputDir npm --generateDockerfile --skipPackagesAtUrl https://cdn.example.com/npm/ --logLevel warn
+shared-deps build shared-deps.conf.mjs --clean --outputDir npm --generateDockerfile --skipPackagesAtUrl https://cdn.example.com/npm/ --logLevel warn
 ```
 
 ## Javascript API
