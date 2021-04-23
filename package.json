@@ -7,8 +7,8 @@
   "scripts": {
     "test": "node bin/self-hosted-shared-dependencies-cli.js build test/happy-path/conf.js --clean",
     "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable && tsc"
+    "prepublishOnly": "pinst --disable && tsc",
+    "postpublish": "pinst --enable"
   },
   "bin": {
     "shared-deps": "bin/self-hosted-shared-dependencies-cli.js"
