@@ -102,7 +102,7 @@ const config = {
   // Optional, defaults to "npm"
   // Change the name of the output directory where the static assets
   // will be placed. The outputDir is resolved relative to the CWD
-  outputDir: 'npm'
+  outputDir: 'npm',
 
   // Optional, defaults to false
   // When true, the outputDir will be deleted at the beginning of the build
@@ -229,7 +229,7 @@ build({
       ],
     },
   ],
-  outputDir: 'npm'
+  outputDir: 'npm',
   clean: false,
   generateDockerfile: false,
   skipPackagesAtUrl: 'https://cdn.example.com/npm/',
