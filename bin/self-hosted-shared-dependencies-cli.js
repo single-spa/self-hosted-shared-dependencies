@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { build } from "../lib/self-hosted-shared-dependencies.js";
 import path from "path";
 import minimist from "minimist";
