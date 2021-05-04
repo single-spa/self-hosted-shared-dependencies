@@ -123,6 +123,11 @@ const config = {
   // see if it needs to build the package version or not
   skipPackagesAtUrl: 'https://cdn.example.com/npm/',
 
+  // Optional, defaults to the output of "npm get registry".
+  // When provided, this allows you to specify the npm registry 
+  // which is then used to fetch all packages.
+  npmRegistry: 'https://registry.npmjs.org/',
+
   // Optional, defaults to "debug". Must be one of "debug", "warn", or "fatal"
   // This changes the verbosity of the stdout logging
   logLevel: "warn",
