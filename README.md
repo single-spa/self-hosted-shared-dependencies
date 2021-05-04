@@ -93,8 +93,8 @@ const config = {
         // take priority over the package's include and exclude lists
         {
           version: "16.14.0",
-          include: ["umd/**", "cjs/**"]
-        }
+          include: ["umd/**", "cjs/**"],
+        },
       ],
     },
   ],
@@ -102,7 +102,7 @@ const config = {
   // Optional, defaults to "npm"
   // Change the name of the output directory where the static assets
   // will be placed. The outputDir is resolved relative to the CWD
-  outputDir: 'npm'
+  outputDir: "npm",
 
   // Optional, defaults to false
   // When true, the outputDir will be deleted at the beginning of the build
@@ -121,7 +121,7 @@ const config = {
   // build faster. For each package version, it will check
   // <skipPackagesAtUrl>/<packageName>@<version>/package.json to
   // see if it needs to build the package version or not
-  skipPackagesAtUrl: 'https://cdn.example.com/npm/',
+  skipPackagesAtUrl: "https://cdn.example.com/npm/",
 
   // Optional, defaults to "debug". Must be one of "debug", "warn", or "fatal"
   // This changes the verbosity of the stdout logging
@@ -211,7 +211,7 @@ shared-deps build shared-deps.conf.mjs --clean --outputDir npm --generateDockerf
 You may also use this project via javascript. Note that it is published as an ES module so you must use `import` or `import()` to use it, you cannot use `require()`.
 
 ```js
-import { build } from 'self-hosted-shared-dependencies';
+import { build } from "self-hosted-shared-dependencies";
 
 build({
   // This object is the same as the object exported from the Config File above
@@ -224,23 +224,23 @@ build({
         ">= 17",
         {
           version: "16.14.0",
-          include: ["umd/**", "cjs/**"]
-        }
+          include: ["umd/**", "cjs/**"],
+        },
       ],
     },
   ],
-  outputDir: 'npm'
+  outputDir: "npm",
   clean: false,
   generateDockerfile: false,
-  skipPackagesAtUrl: 'https://cdn.example.com/npm/',
+  skipPackagesAtUrl: "https://cdn.example.com/npm/",
   logLevel: "warn",
 }).then(
   () => {
-    console.log('Finished!')
+    console.log("Finished!");
   },
-  err => {
-    console.error(err)
-    process.exit(1)
+  (err) => {
+    console.error(err);
+    process.exit(1);
   }
-)
+);
 ```
