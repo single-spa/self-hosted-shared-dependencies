@@ -63,7 +63,7 @@ Then create a shared-deps.conf.mjs file:
  * @type {import('self-hosted-shared-dependencies').BuildOpts}
  */
 const config = {
-  // Required, a list of npm package versions to include in the output directory
+  // Required if not using package.json, a list of npm package versions to include in the output directory
   packages: [
     {
       // Required. The name of the package to include
@@ -98,6 +98,11 @@ const config = {
       ],
     },
   ],
+
+  // Optional, defaults to false
+  // When true, will parse the package.json file and use the
+  // dependencies as the package list
+  usePackageJSON: false,
 
   // Optional, defaults to "npm"
   // Change the name of the output directory where the static assets
@@ -229,6 +234,7 @@ build({
       ],
     },
   ],
+  usePackageJSON: false,
   outputDir: "npm",
   clean: false,
   generateDockerfile: false,
