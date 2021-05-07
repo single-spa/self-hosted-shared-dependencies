@@ -123,7 +123,7 @@ const config = {
   // see if it needs to build the package version or not
   skipPackagesAtUrl: 'https://cdn.example.com/npm/',
 
-  // Optional, defaults to the output of "npm get registry".
+  // Optional, defaults to the public npm registry.
   // When provided, this allows you to specify the npm registry 
   // which is then used to fetch all packages.
   npmRegistry: 'https://registry.npmjs.org/',
