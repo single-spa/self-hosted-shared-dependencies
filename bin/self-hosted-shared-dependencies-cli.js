@@ -16,29 +16,27 @@ const configFilePath = path.resolve(process.cwd(), configFile);
 const hasConfigFile = existsSync(configFilePath);
 if (!hasConfigFile && !argv.usePackageJSON) {
   throw Error(
-    "You must either use a config file or use option to use package.json"
+    "You must either use a config file or add the --usePackageJSON flag"
   );
 }
-
-if (!hasConfigFile && argv.usePackageJSON) {
-  build(argv);
-} else {
-  import(url.pathToFileURL(path.resolve(process.cwd(), configFile)).href)
-    .then(async (configModule) => {
-      switch (command) {
-        case "build":
-          await build(Object.assign(configModule.default, argv));
-        case "serve":
-          break;
-        default:
-          console.error(
-            `self-hosted-shared-dependencies: Invalid CLI command '${command}'`
-          );
-          process.exit(1);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      process.exit(1);
-    });
-}
+const configPromise = hasConfigFile
+  ? import(url.pathToFileURL(configFilePath))
+  : Promise.resolve({ default: {} });
+configPromise
+  .then(async (configModule) => {
+    switch (command) {
+      case "build":
+        await build(Object.assign(configModule.default, argv));
+      case "serve":
+        break;
+      default:
+        console.error(
+          `self-hosted-shared-dependencies: Invalid CLI command '${command}'`
+        );
+        process.exit(1);
+    }
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
