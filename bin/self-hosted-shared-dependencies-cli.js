@@ -3,7 +3,8 @@
 import { build } from "../lib/self-hosted-shared-dependencies.js";
 import path from "path";
 import minimist from "minimist";
-import url from "url"
+import url from "url";
+import { existsSync } from "fs";
 
 const argv = minimist(process.argv.slice(2));
 
@@ -11,7 +12,17 @@ const command = process.env.SHARED_DEPENDENCIES_CONFIG ?? argv._[0] ?? "build";
 
 const configFile = argv._.length > 1 ? argv._[1] : "shared-deps.conf.js";
 
-import(url.pathToFileURL(path.resolve(process.cwd(), configFile)).href)
+const configFilePath = path.resolve(process.cwd(), configFile);
+const hasConfigFile = existsSync(configFilePath);
+if (!hasConfigFile && !argv.usePackageJSON) {
+  throw Error(
+    "You must either use a config file or add the --usePackageJSON flag"
+  );
+}
+const configPromise = hasConfigFile
+  ? import(url.pathToFileURL(configFilePath))
+  : Promise.resolve({ default: {} });
+configPromise
   .then(async (configModule) => {
     switch (command) {
       case "build":
