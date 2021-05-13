@@ -52,9 +52,41 @@ It's recommended to run self-hosted-shared-dependencies during the CI/CD build a
 }
 ```
 
-Then create a shared-deps.conf.mjs file:
+### package.json
+
+For simpler use cases, self-hosted-shared-dependencies can read the `"dependencies"` section of your project's package.json and determine which packages to download. The main limitation of this approach is that you cannot provide package and version specific configuration to control which folders are included in the final output.
+
+To build from package.json, add the `--usePackageJSON` CLI flag
+
+```sh
+shared-deps build --usePackageJSON
+```
+
+```js
+// Or if you're using an npm-script to build, add the flag to your package.json
+{
+  "scripts": {
+    "build-shared-deps": "shared-deps build --usePackageJSON"
+  }
+}
+```
+
+Then the `"dependencies"` in your package.json will be used to determine which versions to include. For example, the code below will result in all React 17 versions being included:
+
+```js
+// In your package.json
+{
+  "dependencies": {
+    "react": "^17.0.0"
+  }
+}
+```
+
+When using the package.json, you do not need to create a shared-deps.conf.mjs file. However, you may combine `--usePackageJSON` with a config file, if desired, as long as you don't specify `packages` in the config file (as `packages` and `usePackageJSON` are mutually exclusive options).
 
 ### Config File
+
+For full configuration options, create a shared-deps.conf.mjs file:
 
 ```js
 // shared-deps.conf.mjs
@@ -129,9 +161,9 @@ const config = {
   skipPackagesAtUrl: "https://cdn.example.com/npm/",
 
   // Optional, defaults to the public npm registry.
-  // When provided, this allows you to specify the npm registry 
+  // When provided, this allows you to specify the npm registry
   // which is then used to fetch all packages.
-  npmRegistry: 'https://registry.npmjs.org/',
+  npmRegistry: "https://registry.npmjs.org/",
 
   // Optional, defaults to "debug". Must be one of "debug", "warn", or "fatal"
   // This changes the verbosity of the stdout logging
