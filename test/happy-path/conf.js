@@ -5,7 +5,11 @@ export default {
   clean: true,
   // skipPackagesAtUrl: 'https://unpkg.com/',
   generateDockerfile: true,
-  logLevel: "warn",
+  logLevel: "debug",
+  registryFetchOptions: {
+    username: "fake-username",
+    password: "not-the-real-password",
+  },
   packages: [
     {
       name: "react",
