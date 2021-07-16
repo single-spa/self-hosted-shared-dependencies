@@ -165,6 +165,16 @@ const config = {
   // which is then used to fetch all packages.
   npmRegistry: "https://registry.npmjs.org/",
 
+  // Optional, defaults to {}.
+  // When provided, this allows you to configure the behavior of npm-registry-fetch,
+  // such as providing username, password, or token to access private npm packages.
+  // See https://github.com/npm/npm-registry-fetch#-fetch-options for documentation
+  registryFetchOptions: {
+    username: "test",
+    password: "test",
+    token: "test",
+  },
+
   // Optional, defaults to "debug". Must be one of "debug", "warn", or "fatal"
   // This changes the verbosity of the stdout logging
   logLevel: "warn",
