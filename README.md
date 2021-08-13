@@ -160,11 +160,6 @@ const config = {
   // see if it needs to build the package version or not
   skipPackagesAtUrl: "https://cdn.example.com/npm/",
 
-  // Optional, defaults to the public npm registry.
-  // When provided, this allows you to specify the npm registry
-  // which is then used to fetch all packages.
-  npmRegistry: "https://registry.npmjs.org/",
-
   // Optional, defaults to {}.
   // When provided, this allows you to configure the behavior of npm-registry-fetch,
   // such as providing username, password, or token to access private npm packages.
@@ -173,11 +168,15 @@ const config = {
     username: "test",
     password: "test",
     token: "test",
+    registry: "https://registry.npmjs.org/",
   },
 
   // Optional, defaults to "debug". Must be one of "debug", "warn", or "fatal"
   // This changes the verbosity of the stdout logging
   logLevel: "warn",
+
+  // Optional, defaults to true. This is a safeguard against the clean operation deleting important directories accidentally, by forcing them to be absolute paths. To disable that behavior, set to false.
+  absoluteDir: true,
 };
 
 export default config;
