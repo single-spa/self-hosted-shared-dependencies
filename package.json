@@ -6,12 +6,18 @@
   "main": "lib/self-hosted-shared-dependencies.js",
   "scripts": {
     "test": "node bin/self-hosted-shared-dependencies-cli.js build test/happy-path/conf.js --clean",
+    "lint": "eslint lib bin",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable && tsc",
     "postpublish": "pinst --enable"
   },
   "bin": {
     "shared-deps": "bin/self-hosted-shared-dependencies-cli.js"
+  },
+  "engines": {
+    "node": ">=14"
   },
   "files": [
     "types",
@@ -47,10 +53,13 @@
     "tar": "^6.1.0"
   },
   "devDependencies": {
-    "husky": "^6.0.0",
+    "@babel/eslint-parser": "^7.15.0",
+    "eslint": "^7.32.0",
+    "eslint-config-node-important-stuff": "^1.1.0",
+    "husky": "^7.0.1",
     "pinst": "^2.1.6",
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
     "typescript": "^4.2.4"
   }
 }
