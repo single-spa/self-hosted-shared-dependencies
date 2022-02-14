@@ -5,6 +5,7 @@ export default {
   clean: true,
   // skipPackagesAtUrl: 'https://unpkg.com/',
   generateDockerfile: true,
+  // customSplit: '@',
   logLevel: "debug",
   registryFetchOptions: {
     username: "fake-username",
